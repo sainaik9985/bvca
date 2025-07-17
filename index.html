@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <style>
+    body {  
+      font-family: Arial, sans-serif;
+      background-color: #e4edec;
+      padding: 30px;
+      
+    }
+   
+
+    h1 {
+      text-align: center;
+      color: #4e1715;
+    }
+
+    .search-container {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .player-details {
+      margin-top: 20px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .not-found {
+      color: red;
+      text-align: center;
+      margin-top: 15px;
+    }
+   
+  </style>
+</head>
+<body>
+
+  
+
+  <u><h1>BALJI VILLAS CRICKET ASSOCIATION</h1></u>
+  <u><H4>Team Members</H4></u>
+  <ol>
+  
+
+ <li><p>Lakhmi naryana sir (Si)</p></li>
+  <li><p>Peddda Nayudu  sir (Ci)</p></li>
+   <li><p>Srinu sir (Si)</p></li>
+    <li><p>Venkata chavali Subbu Anna</p></li>
+    <li><p>Vijay anna </p></li>
+   <li><p>Pavan kummar suddala (Captain)</p></li>
+    <li><p>Addakula anil (Vice captain)</p></li>
+    <li><p>Rahul siri giri </p></li>
+     <li><p>Anish </p></li>
+    <li><p>Suhan basha </p></li>
+    <li><p>Athar basha </p></li>
+    <li><p>Rahul </p></li>
+    <li><p> Yaswanth</p></li>
+    <li><p>Charan lol </p></li>
+    <li><p>Sai naik </p></li>
+    <li><p>Omkar Dasari </p></li>
+    <li><p>Pual Sudhakar </p></li>
+    <li><p>leekshith reddy </p></li>
+  
+  </ol>
+  <h3> If   U want players brief details please Search below  </h3>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Enter player name..." oninput="searchPlayer()" />
+  </div>
+
+  <div class="player-details" id="playerDetails" style="display:none;"></div>
+  <div class="not-found" id="notFound" style="display:none;">Player not found!</div>
+
+  <script>
+    const players = [
+      {
+        name: "Pavan kumar suddala (captain)",
+        age: 25,
+        role: "Batsman,Bowller,all rounder",
+        country: "India"
+      },
+      {
+        name: "Anil Addakula (vice Captain)",
+        age: 22,
+        role: "Bowler,Bowller,all rounder",
+        country: "India"
+      },
+      {
+        name: "Subbu anna (Association head,) ",
+        age: 32,
+        role: "Wicketkeeper",
+        country: "India"
+      },
+      {
+        name: "ATHAR BASHA ",
+        age: 20,
+        role: "Bowler,Bowller,all rounder",
+        country: "India"
+      },
+      {
+        name: "Pranay legend",
+        age: 20,
+        role: "Bowler,Bowller,all rounder",
+        country: "India"
+      },
+      {
+        name: "ANISH",
+        age: 20,
+        role: "Bowler,Bowller,all rounder",
+        country: "India"
+      },
+      {
+        name: "SUHAN",
+        age: 20,
+        role: "Bowler,Bowller,all rounder",
+        country: "India"
+      },
+      {
+        name: "CHRAN LOL",
+        age: 20,
+        role: "Bowler,all rounder",
+        country: "India"
+      },
+      {
+        name: "YESWANTH",
+        age: 20,
+        role: "Bowler,all rounder",
+        country: "India"
+      },
+      {
+        name: "VIJAY ANNA ( COACH) ",
+        age: 32,
+        role: "Batsman, Bowller",
+        country: "India"
+      },
+      {
+        name: "Sai naik",
+        age: 23,
+        role: "Batsman",
+        country: "India"
+      },
+      {
+        name: "Laxmi Narayan Sir (SI) (Head Coach)",
+        age: 35,
+        role: "Batsman Bowler, ",
+        country: "India"
+      },
+      {
+        name: "Srinu Sir (SI) (Head Coach)",
+        age: 35,
+        role: "Batsman Bowler,",
+        country: "India"
+      },
+       {
+        name: "Pedda nayudu  Sir (CI) (Head Coach)",
+        age: 35,
+        role: "Batsman Bowler,",
+        country: "India"
+      },
+       {
+        name: "Dasari OMKAR ",
+        age: 23,
+        role: "Batsman",
+        country: "India"
+      },
+       {
+        name: "PAUL SUDHAKAR  ",
+        age: 23,
+        role: "Batsman",
+        country: "India"
+      },
+       {
+        name: "RAHUL SIRIGIRI ",
+        age: 23,
+        role: "Batsman, Bowler ",
+        country: "India"
+      },
+       {
+        name: "RAHUL (test player)",
+        age: 20,
+        role: "Batsman, ",
+        country: "India"
+      },
+       {
+        name: "LEEKSHITH REDDY",
+        age: 20,
+        role: "Batsman,Bowller ",
+        
+        country: "India"
+    
+      },
+      // Add more players here
+    ];
+
+    function searchPlayer() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const player = players.find(p => p.name.toLowerCase().includes(input));
+
+      const playerDetails = document.getElementById('playerDetails');
+      const notFound = document.getElementById('notFound');
+
+      if (input === "") {
+        playerDetails.style.display = "none";
+        notFound.style.display = "none";
+        return;
+      }
+
+      if (player) {
+        playerDetails.innerHTML = `
+          <h2>${player.name}</h2>
+          <p><strong>Age:</strong> ${player.age}</p>
+          <p><strong>Role:</strong> ${player.role}</p>
+          <p><strong>Country:</strong> ${player.country}</p>
+        `;
+        playerDetails.style.display = "block";
+        notFound.style.display = "none";
+      } else {
+        playerDetails.style.display = "none";
+        notFound.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
